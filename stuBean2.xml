@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <!-- 提取list集合属性注入-->
+    <util:list id="list">
+        <value>数据结构</value>
+        <value>PHP从入门到放弃</value>
+        <value>高等数学</value>
+    </util:list>
+    <bean id="book" class="com.nikki.spring5.demo1.collection.Book">
+        <property name="bname" ref="list"></property>
+    </bean>
+</beans>

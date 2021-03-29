@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 通过ste方式注入-->
+    <bean id="book" class="com.nikki.spring5.demo1.Book">
+        <!-- 属性包含特殊符号
+            1.把<>进行转义，用$lt;$gt;来实现
+            2.把特殊符号的内容写道CDATA中:<![CDATA[内容]]>
+        -->
+        <property name="bname" value="西游记"></property>
+        <property name="another" value="吴承恩"></property>
+        <!-- null值-->
+        <property name="price">
+            <null/>
+        </property>
+    </bean>
+    <!-- 通过有参构造注入-->
+    <bean id="book1" class="com.nikki.spring5.demo1.Book">
+        <constructor-arg name="bname" value="计算机操作系统"></constructor-arg>
+        <constructor-arg name="another" value="佚名"></constructor-arg>
+    </bean>
+    <!-- P名称空间注入-->
+    <bean id="book2" class="com.nikki.spring5.demo1.Book" p:bname="高等数学" p:another="同济大学"></bean>
+</beans>
